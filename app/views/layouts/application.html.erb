@@ -37,12 +37,15 @@
   </head>
 
   <body>
+  <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   <header>
+  <% if ["public", "devise"].include?(controller.controller_name) %>
     <%= render "layouts/nav/header" %>
   </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
+    <% else %>
+  <%= render "layouts/nav/dashbaord" %>
+    <% end %>
     <%= yield %>
   </body>
   <%= render "layouts/nav/footer" %>
