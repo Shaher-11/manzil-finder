@@ -32,10 +32,17 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Album example</h1>
+      <% if account_signed_in? %>
+      <p>
+      <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "btn btn-danger my-2 text-white" %>
+
+      </p>
+      <% else %>
         <p>
          <%= link_to "Sign In", new_account_session_path, class: "btn btn-primary my-2 text-white" %>
          <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-secondary my-2 text-white" %>
         </p>
       </div>
+      <% end %>
     </div>
   </section>
